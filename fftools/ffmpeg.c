@@ -1019,6 +1019,10 @@ int main(int argc, char **argv)
         goto finish;
     }
 
+#if defined(__ANDROID__)
+    android_binder_threadpool_init();
+#endif
+
     current_time = ti = get_benchmark_time_stamps();
     ret = transcode(sch);
     if (ret >= 0 && do_benchmark) {

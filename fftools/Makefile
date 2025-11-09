@@ -53,6 +53,9 @@ OBJS-ffprobe +=                       \
 
 OBJS-ffplay += fftools/ffplay_renderer.o
 
+OBJS-ffmpeg-$(CONFIG_MEDIACODEC) += fftools/android_binder.o
+OBJS-ffplay-$(CONFIG_MEDIACODEC) += fftools/android_binder.o
+
 define DOFFTOOL
 OBJS-$(1) += fftools/cmdutils.o fftools/opt_common.o fftools/$(1).o $(OBJS-$(1)-yes)
 ifdef HAVE_GNU_WINDRES

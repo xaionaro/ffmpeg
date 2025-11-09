@@ -26,6 +26,7 @@
 #include <stdio.h>
 #include <signal.h>
 
+#include "android_binder.h"
 #include "cmdutils.h"
 #include "ffmpeg_sched.h"
 #include "sync_queue.h"

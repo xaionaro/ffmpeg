@@ -54,6 +54,7 @@
 #include <SDL.h>
 #include <SDL_thread.h>
 
+#include "android_binder.h"
 #include "cmdutils.h"
 #include "ffplay_renderer.h"
 #include "opt_common.h"
@@ -3891,6 +3892,10 @@ int main(int argc, char **argv)
             }
         }
     }
+
+#if defined(__ANDROID__)
+    android_binder_threadpool_init();
+#endif
 
     is = stream_open(input_filename, file_iformat);
     if (!is) {
